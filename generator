@@ -1,0 +1,8 @@
+_precompute:function(){var i=0,s=[2],p=0,n=80,a=0,b=0,c=0,w=0,x=[0,0,0];
+for(;p<n;){for(i=s[p]*s[p];i<512;s[i]=1,i+=s[p]);p++;s[p]=s[p-1]+1;for(;s[s[p]];s[p]++);}
+for(i=0;i<8;i++){a=s[i],b=0,p=0.25,w=0,x=[0,0,0],n=64;for(;a>1;a/=4,n++);for(;n--;){w=a-2*b-p;
+a=(w>0?w:a)*2;b=(w>0?p:0)+b;x[2-(n>>5)]*=2;x[2-(n>>5)]+=(w>0?1:0);p=p/2;}this._init[i*2]=x[i][1];
+this._init[i*2+1]=x[i][2];}for(i=0;i<80;i++){n=64,a=2*s[i],b=0,c=0,p=.25,x=[0,0,0],w=0;
+for(;a>1;a/=8,n++);for(;n--;){w=a-3*(b+c)-p;a=(w>0?w:a)*2;b=(w>0?2*c+p:0)+b;c=(w>0?c+p:c)/2;
+x[2-(n>>5)]*=2;x[2-(n>>5)]+=(w>0?1:0);p=p/4;}}this._key[i*2]=s[i][1];this._key[i*2+1]=s[i][2];},
+
